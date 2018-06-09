@@ -1,0 +1,22 @@
+{
+  "name": "ps4-html5-gamepad-control",
+  "version": "1.0.0",
+  "description": "- Added HTML5 gamepad support for PS4 controller to read its inputs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssyed-ahmed/ps4-html5-gamepad-control.git"
+  },
+  "author": "Sumair Syed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ssyed-ahmed/ps4-html5-gamepad-control/issues"
+  },
+  "homepage": "https://github.com/ssyed-ahmed/ps4-html5-gamepad-control#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
