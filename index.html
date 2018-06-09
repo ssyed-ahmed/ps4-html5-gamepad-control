@@ -31,11 +31,11 @@
         margin: 10px;
       }
       table th {
-        background-color: yellow; 
+        background-color: yellow;
         border: 1px solid black;
       }
       table td {
-        border: 1px solid black; 
+        border: 1px solid black;
 		text-align: center;
       }
     </style>
@@ -209,7 +209,7 @@
         <td id='rightJoystickRightValue'></td>
         <td>Z</td>
       </tr>
-    </table>		
+    </table>
 	</div>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
@@ -343,7 +343,7 @@
     moved = (value >= ANALOG_BUTTON_THRESHOLD);
     return moved;
   }
-  
+
 
   function gameLoop() {
     var gamepads = navigator.getGamepads ? navigator.getGamepads() : (navigator.webkitGetGamepads ? navigator.webkitGetGamepads : []);
@@ -357,9 +357,9 @@
       	$('#squareButton').text('on');
         $('#squareButton').css('background-color', '#77dd77');
     } else {
-  	   $('#squareButton').text('off'); 
+  	   $('#squareButton').text('off');
        $('#squareButton').css('background-color', '#fff');
-    }  
+    }
     if (buttonPressed(gp.buttons[0])) {
   	   $('#xButton').text('on');
        $('#xButton').css('background-color', '#77dd77');
@@ -548,9 +548,9 @@
     $('#rightJoystickRightValue').text(axisData(gp.axes[3]));
 
     // $('#status').text(statusStr);
-    
-    
-    
+
+
+
     /*if (buttonPressed(gp.buttons[0])) {
       a--;
     } else if (buttonPressed(gp.buttons[2])) {
@@ -569,6 +569,10 @@
   };
 
 
+  </script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    let socket = io()
   </script>
 </body>
 </html>
