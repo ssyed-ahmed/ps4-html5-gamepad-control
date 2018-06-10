@@ -12,20 +12,6 @@
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <style>
-      #ball {
-        width: 40px;
-        height: 40px;
-        border-radius: 20px;
-        background-color: red;
-
-        background-image: -webkit-radial-gradient(40% 40%, circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));;
-        background-image: -moz-radial-gradient(40% 40%, circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));;
-        background-image: -ms-radial-gradient(40% 40%, circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));;
-        background-image: radial-gradient(circle at 40% 40%, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
-
-        position: relative;
-      }
-
       table {
         border: 2px solid black;
         margin: 10px;
@@ -355,7 +341,7 @@
       if (buttonPressed(gp.buttons[2])) {
         	$('#squareButton').text('on');
           $('#squareButton').css('background-color', '#77dd77');
-          socket.emit('message', 'A')
+          socket.emit('message', 'A' + '\n')
       } else {
     	   $('#squareButton').text('off');
          $('#squareButton').css('background-color', '#fff');
@@ -363,7 +349,7 @@
       if (buttonPressed(gp.buttons[0])) {
     	   $('#xButton').text('on');
          $('#xButton').css('background-color', '#77dd77');
-         socket.emit('message', 'B')
+         socket.emit('message', 'B' + '\n')
       } else {
     	   $('#xButton').text('off');
          $('#xButton').css('background-color', '#fff');
@@ -371,7 +357,7 @@
       if (buttonPressed(gp.buttons[1])) {
     	   $('#circleButton').text('on');
          $('#circleButton').css('background-color', '#77dd77');
-         socket.emit('message', 'C')
+         socket.emit('message', 'C' + '\n')
       } else {
     	   $('#circleButton').text('off');
          $('#circleButton').css('background-color', '#fff');
@@ -379,7 +365,7 @@
       if (buttonPressed(gp.buttons[3])) {
     	   $('#triangleButton').text('on');
          $('#triangleButton').css('background-color', '#77dd77');
-         socket.emit('message', 'D')
+         socket.emit('message', 'D' + '\n')
       } else {
     	   $('#triangleButton').text('off');
          $('#triangleButton').css('background-color', '#fff');
@@ -387,7 +373,7 @@
       if (buttonPressed(gp.buttons[4])) {
          $('#leftTopShoulderButton').text('on');
          $('#leftTopShoulderButton').css('background-color', '#77dd77');
-         socket.emit('message', 'O')
+         socket.emit('message', 'O' + '\n')
       } else {
          $('#leftTopShoulderButton').text('off');
          $('#leftTopShoulderButton').css('background-color', '#fff');
@@ -395,7 +381,7 @@
       if (buttonPressed(gp.buttons[5])) {
          $('#rightTopShoulderButton').text('on');
          $('#rightTopShoulderButton').css('background-color', '#77dd77');
-         socket.emit('message', 'P')
+         socket.emit('message', 'P' + '\n')
       } else {
          $('#rightTopShoulderButton').text('off');
          $('#rightTopShoulderButton').css('background-color', '#fff');
@@ -403,7 +389,7 @@
       if (analogButtonPressed(gp.buttons[6])) {
          $('#leftBottomShoulderButton').text('on');
          $('#leftBottomShoulderButton').css('background-color', '#77dd77');
-         socket.emit('message', 'Q')
+         socket.emit('message', 'Q' + '\n')
       } else {
          $('#leftBottomShoulderButton').text('off');
          $('#leftBottomShoulderButton').css('background-color', '#fff');
@@ -411,7 +397,7 @@
       if (analogButtonPressed(gp.buttons[7])) {
          $('#rightBottomShoulderButton').text('on');
          $('#rightBottomShoulderButton').css('background-color', '#77dd77');
-         socket.emit('message', 'R')
+         socket.emit('message', 'R' + '\n')
       } else {
          $('#rightBottomShoulderButton').text('off');
          $('#rightBottomShoulderButton').css('background-color', '#fff');
@@ -419,7 +405,7 @@
       if (buttonPressed(gp.buttons[8])) {
          $('#shareButton').text('on');
          $('#shareButton').css('background-color', '#77dd77');
-         socket.emit('message', 'J')
+         socket.emit('message', 'J' + '\n')
       } else {
          $('#shareButton').text('off');
          $('#shareButton').css('background-color', '#fff');
@@ -427,7 +413,7 @@
       if (buttonPressed(gp.buttons[9])) {
          $('#optionsButton').text('on');
          $('#optionsButton').css('background-color', '#77dd77');
-         socket.emit('message', 'I')
+         socket.emit('message', 'I' + '\n')
       } else {
          $('#optionsButton').text('off');
          $('#optionsButton').css('background-color', '#fff');
@@ -435,7 +421,7 @@
       if (buttonPressed(gp.buttons[10])) {
          $('#leftJoystickButton').text('on');
          $('#leftJoystickButton').css('background-color', '#77dd77');
-         socket.emit('message', 'M')
+         socket.emit('message', 'M' + '\n')
       } else {
          $('#leftJoystickButton').text('off');
          $('#leftJoystickButton').css('background-color', '#fff');
@@ -443,7 +429,7 @@
       if (buttonPressed(gp.buttons[11])) {
          $('#rightJoystickButton').text('on');
          $('#rightJoystickButton').css('background-color', '#77dd77');
-         socket.emit('message', 'N')
+         socket.emit('message', 'N' + '\n')
       } else {
          $('#rightJoystickButton').text('off');
          $('#rightJoystickButton').css('background-color', '#fff');
@@ -451,7 +437,7 @@
       if (buttonPressed(gp.buttons[12])) {
          $('#dpadUpButton').text('on');
          $('#dpadUpButton').css('background-color', '#77dd77');
-         socket.emit('message', 'E')
+         socket.emit('message', 'E' + '\n')
       } else {
          $('#dpadUpButton').text('off');
          $('#dpadUpButton').css('background-color', '#fff');
@@ -459,7 +445,7 @@
       if (buttonPressed(gp.buttons[13])) {
          $('#dpadDownButton').text('on');
          $('#dpadDownButton').css('background-color', '#77dd77');
-         socket.emit('message', 'F')
+         socket.emit('message', 'F' + '\n')
       } else {
          $('#dpadDownButton').text('off');
          $('#dpadDownButton').css('background-color', '#fff');
@@ -467,7 +453,7 @@
       if (buttonPressed(gp.buttons[14])) {
          $('#dpadLeftButton').text('on');
          $('#dpadLeftButton').css('background-color', '#77dd77');
-         socket.emit('message', 'H')
+         socket.emit('message', 'H' + '\n')
       } else {
          $('#dpadLeftButton').text('off');
          $('#dpadLeftButton').css('background-color', '#fff');
@@ -475,7 +461,7 @@
       if (buttonPressed(gp.buttons[15])) {
          $('#dpadRightButton').text('on');
          $('#dpadRightButton').css('background-color', '#77dd77');
-         socket.emit('message', 'G')
+         socket.emit('message', 'G' + '\n')
       } else {
          $('#dpadRightButton').text('off');
          $('#dpadRightButton').css('background-color', '#fff');
@@ -483,7 +469,7 @@
       if (buttonPressed(gp.buttons[16])) {
          $('#psButton').text('on');
          $('#psButton').css('background-color', '#77dd77');
-         socket.emit('message', 'K')
+         socket.emit('message', 'K' + '\n')
       } else {
          $('#psButton').text('off');
          $('#psButton').css('background-color', '#fff');
@@ -491,7 +477,7 @@
       if (buttonPressed(gp.buttons[17])) {
          $('#touchpadButton').text('on');
          $('#touchpadButton').css('background-color', '#77dd77');
-         socket.emit('message', 'L')
+         socket.emit('message', 'L' + '\n')
       } else {
          $('#touchpadButton').text('off');
          $('#touchpadButton').css('background-color', '#fff');
@@ -499,7 +485,7 @@
       if (leftAxisMovedUp(gp.axes[1])) {
           $('#leftJoystickUp').text('on');
           $('#leftJoystickUp').css('background-color', '#77dd77');
-          socket.emit('message', 'S')
+          socket.emit('message', 'S' + '\n')
       } else {
           $('#leftJoystickUp').text('off');
           $('#leftJoystickUp').css('background-color', '#fff');
@@ -507,7 +493,7 @@
       if (leftAxisMovedDown(gp.axes[1])) {
           $('#leftJoystickDown').text('on');
           $('#leftJoystickDown').css('background-color', '#77dd77');
-          socket.emit('message', 'T')
+          socket.emit('message', 'T' + '\n')
       } else {
           $('#leftJoystickDown').text('off');
           $('#leftJoystickDown').css('background-color', '#fff');
@@ -515,7 +501,7 @@
       if (leftAxisMovedLeft(gp.axes[0])) {
           $('#leftJoystickLeft').text('on');
           $('#leftJoystickLeft').css('background-color', '#77dd77');
-          socket.emit('message', 'U')
+          socket.emit('message', 'U' + '\n')
       } else {
           $('#leftJoystickLeft').text('off');
           $('#leftJoystickLeft').css('background-color', '#fff');
@@ -523,7 +509,7 @@
       if (leftAxisMovedRight(gp.axes[0])) {
           $('#leftJoystickRight').text('on');
           $('#leftJoystickRight').css('background-color', '#77dd77');
-          socket.emit('message', 'V')
+          socket.emit('message', 'V' + '\n')
       } else {
           $('#leftJoystickRight').text('off');
           $('#leftJoystickRight').css('background-color', '#fff');
@@ -531,7 +517,7 @@
       if (rightAxisMovedUp(gp.axes[3])) {
           $('#rightJoystickUp').text('on');
           $('#rightJoystickUp').css('background-color', '#77dd77');
-          socket.emit('message', 'W')
+          socket.emit('message', 'W' + '\n')
       } else {
           $('#rightJoystickUp').text('off');
           $('#rightJoystickUp').css('background-color', '#fff');
@@ -539,7 +525,7 @@
       if (rightAxisMovedDown(gp.axes[3])) {
           $('#rightJoystickDown').text('on');
           $('#rightJoystickDown').css('background-color', '#77dd77');
-          socket.emit('message', 'X')
+          socket.emit('message', 'X' + '\n')
       } else {
           $('#rightJoystickDown').text('off');
           $('#rightJoystickDown').css('background-color', '#fff');
@@ -547,7 +533,7 @@
       if (rightAxisMovedLeft(gp.axes[2])) {
           $('#rightJoystickLeft').text('on');
           $('#rightJoystickLeft').css('background-color', '#77dd77');
-          socket.emit('message', 'Y')
+          socket.emit('message', 'Y' + '\n')
       } else {
           $('#rightJoystickLeft').text('off');
           $('#rightJoystickLeft').css('background-color', '#fff');
@@ -555,7 +541,7 @@
       if (rightAxisMovedRight(gp.axes[2])) {
           $('#rightJoystickRight').text('on');
           $('#rightJoystickRight').css('background-color', '#77dd77');
-          socket.emit('message', 'Z')
+          socket.emit('message', 'Z' + '\n')
       } else {
           $('#rightJoystickRight').text('off');
           $('#rightJoystickRight').css('background-color', '#fff');
@@ -572,7 +558,6 @@
       $('#rightJoystickLeftValue').text(axisData(gp.axes[3]));
       $('#rightJoystickRightValue').text(axisData(gp.axes[3]));
 
-      // $('#status').text(statusStr);
       var start = rAF(gameLoop);
     };
   </script>
