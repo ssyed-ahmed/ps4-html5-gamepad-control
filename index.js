@@ -10,7 +10,7 @@ app.get('/', (request, response) => {
 })
 
 // open the USB serial port
-var myPort = new serialPort("COM9", {
+var myPort = new serialPort("COM3", {
 	baudRate: 9600,
     // look for return and newline at the end of each data packet
     parser: new serialPort.parsers.Readline("\r\n")
@@ -28,7 +28,7 @@ io.on('connection', (socket) => {
   console.log('A user connected');
   socket.on('message', (data) => {
     // Data sent from the browser
-    console.log(data)
+    //console.log(data)
 
     myPort.write(data, (err) => {
       if (err) {
