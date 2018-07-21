@@ -343,8 +343,9 @@
           $('#squareButton').css('background-color', '#77dd77');
           socket.emit('message', 'A' + '\n')
       } else {
-    	   $('#squareButton').text('off');
-         $('#squareButton').css('background-color', '#fff');
+    	    $('#squareButton').text('off');
+          $('#squareButton').css('background-color', '#fff');
+          
       }
       if (buttonPressed(gp.buttons[0])) {
     	   $('#xButton').text('on');
@@ -353,6 +354,7 @@
       } else {
     	   $('#xButton').text('off');
          $('#xButton').css('background-color', '#fff');
+         
       }
       if (buttonPressed(gp.buttons[1])) {
     	   $('#circleButton').text('on');
@@ -361,6 +363,7 @@
       } else {
     	   $('#circleButton').text('off');
          $('#circleButton').css('background-color', '#fff');
+         
       }
       if (buttonPressed(gp.buttons[3])) {
     	   $('#triangleButton').text('on');
@@ -369,6 +372,7 @@
       } else {
     	   $('#triangleButton').text('off');
          $('#triangleButton').css('background-color', '#fff');
+         
       }
       if (buttonPressed(gp.buttons[4])) {
          $('#leftTopShoulderButton').text('on');
@@ -377,6 +381,7 @@
       } else {
          $('#leftTopShoulderButton').text('off');
          $('#leftTopShoulderButton').css('background-color', '#fff');
+         
       }
       if (buttonPressed(gp.buttons[5])) {
          $('#rightTopShoulderButton').text('on');
@@ -385,6 +390,7 @@
       } else {
          $('#rightTopShoulderButton').text('off');
          $('#rightTopShoulderButton').css('background-color', '#fff');
+         
       }
       if (analogButtonPressed(gp.buttons[6])) {
          $('#leftBottomShoulderButton').text('on');
@@ -393,6 +399,7 @@
       } else {
          $('#leftBottomShoulderButton').text('off');
          $('#leftBottomShoulderButton').css('background-color', '#fff');
+         
       }
       if (analogButtonPressed(gp.buttons[7])) {
          $('#rightBottomShoulderButton').text('on');
@@ -401,6 +408,7 @@
       } else {
          $('#rightBottomShoulderButton').text('off');
          $('#rightBottomShoulderButton').css('background-color', '#fff');
+         
       }
       if (buttonPressed(gp.buttons[8])) {
          $('#shareButton').text('on');
@@ -409,6 +417,7 @@
       } else {
          $('#shareButton').text('off');
          $('#shareButton').css('background-color', '#fff');
+         
       }
       if (buttonPressed(gp.buttons[9])) {
          $('#optionsButton').text('on');
@@ -417,6 +426,7 @@
       } else {
          $('#optionsButton').text('off');
          $('#optionsButton').css('background-color', '#fff');
+         
       }
       if (buttonPressed(gp.buttons[10])) {
          $('#leftJoystickButton').text('on');
@@ -425,6 +435,7 @@
       } else {
          $('#leftJoystickButton').text('off');
          $('#leftJoystickButton').css('background-color', '#fff');
+         
       }
       if (buttonPressed(gp.buttons[11])) {
          $('#rightJoystickButton').text('on');
@@ -433,6 +444,7 @@
       } else {
          $('#rightJoystickButton').text('off');
          $('#rightJoystickButton').css('background-color', '#fff');
+         
       }
       if (buttonPressed(gp.buttons[12])) {
          $('#dpadUpButton').text('on');
@@ -441,6 +453,7 @@
       } else {
          $('#dpadUpButton').text('off');
          $('#dpadUpButton').css('background-color', '#fff');
+         
       }
       if (buttonPressed(gp.buttons[13])) {
          $('#dpadDownButton').text('on');
@@ -449,6 +462,7 @@
       } else {
          $('#dpadDownButton').text('off');
          $('#dpadDownButton').css('background-color', '#fff');
+                  
       }
       if (buttonPressed(gp.buttons[14])) {
          $('#dpadLeftButton').text('on');
@@ -457,6 +471,7 @@
       } else {
          $('#dpadLeftButton').text('off');
          $('#dpadLeftButton').css('background-color', '#fff');
+         
       }
       if (buttonPressed(gp.buttons[15])) {
          $('#dpadRightButton').text('on');
@@ -465,6 +480,7 @@
       } else {
          $('#dpadRightButton').text('off');
          $('#dpadRightButton').css('background-color', '#fff');
+         
       }
       if (buttonPressed(gp.buttons[16])) {
          $('#psButton').text('on');
@@ -473,6 +489,7 @@
       } else {
          $('#psButton').text('off');
          $('#psButton').css('background-color', '#fff');
+         
       }
       if (buttonPressed(gp.buttons[17])) {
          $('#touchpadButton').text('on');
@@ -481,6 +498,7 @@
       } else {
          $('#touchpadButton').text('off');
          $('#touchpadButton').css('background-color', '#fff');
+         
       }
       if (leftAxisMovedUp(gp.axes[1])) {
           $('#leftJoystickUp').text('on');
@@ -489,6 +507,7 @@
       } else {
           $('#leftJoystickUp').text('off');
           $('#leftJoystickUp').css('background-color', '#fff');
+          
       }
       if (leftAxisMovedDown(gp.axes[1])) {
           $('#leftJoystickDown').text('on');
@@ -497,6 +516,7 @@
       } else {
           $('#leftJoystickDown').text('off');
           $('#leftJoystickDown').css('background-color', '#fff');
+          socket.emit('message', '#' + '\n')
       }
       if (leftAxisMovedLeft(gp.axes[0])) {
           $('#leftJoystickLeft').text('on');
@@ -505,6 +525,7 @@
       } else {
           $('#leftJoystickLeft').text('off');
           $('#leftJoystickLeft').css('background-color', '#fff');
+          
       }
       if (leftAxisMovedRight(gp.axes[0])) {
           $('#leftJoystickRight').text('on');
@@ -513,6 +534,7 @@
       } else {
           $('#leftJoystickRight').text('off');
           $('#leftJoystickRight').css('background-color', '#fff');
+          
       }
       if (rightAxisMovedUp(gp.axes[3])) {
           $('#rightJoystickUp').text('on');
@@ -521,6 +543,7 @@
       } else {
           $('#rightJoystickUp').text('off');
           $('#rightJoystickUp').css('background-color', '#fff');
+          
       }
       if (rightAxisMovedDown(gp.axes[3])) {
           $('#rightJoystickDown').text('on');
@@ -529,6 +552,7 @@
       } else {
           $('#rightJoystickDown').text('off');
           $('#rightJoystickDown').css('background-color', '#fff');
+          
       }
       if (rightAxisMovedLeft(gp.axes[2])) {
           $('#rightJoystickLeft').text('on');
@@ -537,6 +561,7 @@
       } else {
           $('#rightJoystickLeft').text('off');
           $('#rightJoystickLeft').css('background-color', '#fff');
+          
       }
       if (rightAxisMovedRight(gp.axes[2])) {
           $('#rightJoystickRight').text('on');
@@ -545,6 +570,7 @@
       } else {
           $('#rightJoystickRight').text('off');
           $('#rightJoystickRight').css('background-color', '#fff');
+          
       }
 
       $('#leftBottomShoulderButtonValue').text(analogButtonValue(gp.buttons[6]));
