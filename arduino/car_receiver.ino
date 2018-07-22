@@ -45,6 +45,16 @@ void loop() {
       } else {
         stopCar();
       }
+      if (strcmp(text, "U") == 0) {
+        moveLeft();
+      } else {
+        stopCar();
+      }
+      if (strcmp(text, "V") == 0) {
+        moveRight();
+      } else {
+        stopCar();
+      }
     }
   }
 }
@@ -63,6 +73,22 @@ void moveBack() {
   digitalWrite(motor1_pin_2, HIGH);
   digitalWrite(motor2_pin_1, LOW);
   digitalWrite(motor2_pin_2, HIGH);
+}
+
+void moveRight() {
+  Serial.println("Move left");
+  digitalWrite(motor1_pin_1, HIGH);
+  digitalWrite(motor1_pin_2, LOW);
+  digitalWrite(motor2_pin_1, LOW);
+  digitalWrite(motor2_pin_2, LOW);
+}
+
+void moveLeft() {
+  Serial.println("Move left");
+  digitalWrite(motor1_pin_1, LOW);
+  digitalWrite(motor1_pin_2, LOW);
+  digitalWrite(motor2_pin_1, HIGH);
+  digitalWrite(motor2_pin_2, LOW);
 }
 
 void stopCar() {
