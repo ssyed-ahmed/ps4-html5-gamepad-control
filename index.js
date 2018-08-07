@@ -11,9 +11,14 @@ app.get('/', (request, response) => {
 
 // open the USB serial port
 var myPort = new serialPort("COM3", {
-	baudRate: 9600,
+  baudRate: 9600,
+  // defaults for Arduino serial communication
+  dataBits: 8, 
+  parity: 'none', 
+  stopBits: 1, 
+  flowControl: false,
     // look for return and newline at the end of each data packet
-    parser: new serialPort.parsers.Readline("\r\n")
+    parser: new serialPort.parsers.Readline("\n")
 })
 
 myPort.on('open', () => {
@@ -21,7 +26,12 @@ myPort.on('open', () => {
 })
 
 myPort.on('data', (data) => {
-  console.log('Serial data: ' + data)
+  console.log('Serial data: ' + data.toString())
+})
+
+// Read data that is available but keep the stream from entering //"flowing mode"
+myPort.on('readable', function () {
+  console.log('Data:', port.read())
 })
 
 io.on('connection', (socket) => {
@@ -34,7 +44,7 @@ io.on('connection', (socket) => {
       if (err) {
         return console.log('Error on write: ', err.message)
       }
-      console.log('serial port message written')
+      console.log('serial port message written: ' + data)
     })
 
     myPort.on('error', (err) => {

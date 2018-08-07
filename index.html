@@ -503,74 +503,82 @@
       if (leftAxisMovedUp(gp.axes[1])) {
           $('#leftJoystickUp').text('on');
           $('#leftJoystickUp').css('background-color', '#77dd77');
-          socket.emit('message', 'S' + '\n')
+          let emitStr = 'S+' + axisData(gp.axes[1]) + '\n'
+          // socket.emit('message', 'S' + '\n')
+          socket.emit('message', emitStr)
       } else {
           $('#leftJoystickUp').text('off');
-          $('#leftJoystickUp').css('background-color', '#fff');
-          
+          $('#leftJoystickUp').css('background-color', '#fff');          
       }
       if (leftAxisMovedDown(gp.axes[1])) {
           $('#leftJoystickDown').text('on');
           $('#leftJoystickDown').css('background-color', '#77dd77');
-          socket.emit('message', 'T' + '\n')
+          let emitStr = 'T+' + axisData(gp.axes[1]) + '\n'
+          // socket.emit('message', 'T' + '\n')
+          socket.emit('message', emitStr)
       } else {
           $('#leftJoystickDown').text('off');
           $('#leftJoystickDown').css('background-color', '#fff');
-          socket.emit('message', '#' + '\n')
       }
       if (leftAxisMovedLeft(gp.axes[0])) {
           $('#leftJoystickLeft').text('on');
           $('#leftJoystickLeft').css('background-color', '#77dd77');
-          socket.emit('message', 'U' + '\n')
+          // socket.emit('message', 'U' + '\n')
+          let emitStr = 'U+' + axisData(gp.axes[0]) + '\n'
+          socket.emit('message', emitStr)
       } else {
           $('#leftJoystickLeft').text('off');
-          $('#leftJoystickLeft').css('background-color', '#fff');
-          
+          $('#leftJoystickLeft').css('background-color', '#fff');          
       }
       if (leftAxisMovedRight(gp.axes[0])) {
           $('#leftJoystickRight').text('on');
           $('#leftJoystickRight').css('background-color', '#77dd77');
-          socket.emit('message', 'V' + '\n')
+          // socket.emit('message', 'V' + '\n')
+          let emitStr = 'V+' + axisData(gp.axes[0]) + '\n'
+          socket.emit('message', emitStr)
       } else {
           $('#leftJoystickRight').text('off');
-          $('#leftJoystickRight').css('background-color', '#fff');
-          
+          $('#leftJoystickRight').css('background-color', '#fff');          
       }
       if (rightAxisMovedUp(gp.axes[3])) {
           $('#rightJoystickUp').text('on');
           $('#rightJoystickUp').css('background-color', '#77dd77');
-          socket.emit('message', 'W' + '\n')
+          // socket.emit('message', 'W' + '\n')
+          let emitStr = 'W+' + axisData(gp.axes[3]) + '\n'
+          socket.emit('message', emitStr)
       } else {
           $('#rightJoystickUp').text('off');
-          $('#rightJoystickUp').css('background-color', '#fff');
-          
+          $('#rightJoystickUp').css('background-color', '#fff');          
       }
       if (rightAxisMovedDown(gp.axes[3])) {
           $('#rightJoystickDown').text('on');
           $('#rightJoystickDown').css('background-color', '#77dd77');
-          socket.emit('message', 'X' + '\n')
+          // socket.emit('message', 'X' + '\n')
+          let emitStr = 'X+' + axisData(gp.axes[3]) + '\n'
+          socket.emit('message', emitStr)
       } else {
           $('#rightJoystickDown').text('off');
-          $('#rightJoystickDown').css('background-color', '#fff');
-          
+          $('#rightJoystickDown').css('background-color', '#fff');          
       }
       if (rightAxisMovedLeft(gp.axes[2])) {
           $('#rightJoystickLeft').text('on');
           $('#rightJoystickLeft').css('background-color', '#77dd77');
-          socket.emit('message', 'Y' + '\n')
+          // socket.emit('message', 'Y' + '\n')
+          let emitStr = 'Y+' + axisData(gp.axes[2]) + '\n'
+          socket.emit('message', emitStr)
       } else {
           $('#rightJoystickLeft').text('off');
-          $('#rightJoystickLeft').css('background-color', '#fff');
-          
+          $('#rightJoystickLeft').css('background-color', '#fff');          
       }
       if (rightAxisMovedRight(gp.axes[2])) {
           $('#rightJoystickRight').text('on');
           $('#rightJoystickRight').css('background-color', '#77dd77');
-          socket.emit('message', 'Z' + '\n')
+          // socket.emit('message', 'Z' + '\n')
+          let emitStr = 'Z+' + axisData(gp.axes[2]) + '\n'
+          socket.emit('message', emitStr)
       } else {
           $('#rightJoystickRight').text('off');
-          $('#rightJoystickRight').css('background-color', '#fff');
-          
+          $('#rightJoystickRight').css('background-color', '#fff');          
       }
 
       $('#leftBottomShoulderButtonValue').text(analogButtonValue(gp.buttons[6]));
