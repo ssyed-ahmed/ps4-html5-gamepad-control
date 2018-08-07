@@ -1,16 +1,24 @@
 #include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
+#include <Servo.h>
+
+Servo baseServo;
+String str;
 
 RF24 radio(7, 8); // CE, CSN
 
 // Define output pins for motors
-#define motor1_pin_1 2
-#define motor1_pin_2 3
-#define motor2_pin_1 4
-#define motor2_pin_2 5
+#define motor1_pin_1 5
+#define motor1_pin_2 4
+#define motor2_pin_1 3
+#define motor2_pin_2 2
+#define MIN 0
+#define MAX 180
 
 const byte addresses[][6] = {"00001", "00002"};
+
+int servoPos = 90;
 
 void setup() {
   radio.begin();
@@ -23,6 +31,9 @@ void setup() {
   pinMode(motor1_pin_2, OUTPUT);
   pinMode(motor2_pin_1, OUTPUT);
   pinMode(motor2_pin_2, OUTPUT);
+
+  baseServo.attach(9);
+  baseServo.write(servoPos);
 }
 
 void loop() {
@@ -35,6 +46,9 @@ void loop() {
       byte rxLen = radio.getDynamicPayloadSize();
       radio.read(text, rxLen);
       Serial.println(text);
+      str = String(text);
+      Serial.println(str);
+      Serial.println(servoPos);
       if (strcmp(text, "S") == 0) {
         moveFront();
       } else {
@@ -54,6 +68,22 @@ void loop() {
         moveRight();
       } else {
         stopCar();
+      }
+      if (str.startsWith("Z")) {  
+        servoPos -= 2;
+        if (servoPos < 0) {
+          servoPos = 0;
+        }
+        baseServo.write(servoPos);
+        delay(5);        
+      }
+      if (str.startsWith("Y")) {
+        servoPos += 2;
+        if (servoPos > 180) {
+          servoPos = 180;
+        }
+        baseServo.write(servoPos);
+        delay(5);
       }
     }
   }
@@ -92,7 +122,7 @@ void moveLeft() {
 }
 
 void stopCar() {
-  Serial.println("Car stopped");
+//  Serial.println("Car stopped");
   digitalWrite(motor1_pin_1, LOW);
   digitalWrite(motor1_pin_2, LOW);
   digitalWrite(motor2_pin_1, LOW);
