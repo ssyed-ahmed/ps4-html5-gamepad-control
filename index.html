@@ -25,6 +25,7 @@
 		text-align: center;
       }
     </style>
+	<!--<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>-->
   </head>
 
   <body>
@@ -328,7 +329,12 @@
       return moved;
     }
 
-    let socket = io()
+    let socket = io();
+	
+	/*socket.on('notification', function(data) {
+		console.log('Data from arduino');
+		console.log(data);
+	});*/
 
     function gameLoop() {
       var gamepads = navigator.getGamepads ? navigator.getGamepads() : (navigator.webkitGetGamepads ? navigator.webkitGetGamepads : []);
@@ -395,7 +401,8 @@
       if (analogButtonPressed(gp.buttons[6])) {
          $('#leftBottomShoulderButton').text('on');
          $('#leftBottomShoulderButton').css('background-color', '#77dd77');
-         socket.emit('message', 'Q' + '\n')
+         let emitStr = 'Q+' + analogButtonValue(gp.buttons[6]) + '\n';
+         socket.emit('message', emitStr);
       } else {
          $('#leftBottomShoulderButton').text('off');
          $('#leftBottomShoulderButton').css('background-color', '#fff');
@@ -404,7 +411,8 @@
       if (analogButtonPressed(gp.buttons[7])) {
          $('#rightBottomShoulderButton').text('on');
          $('#rightBottomShoulderButton').css('background-color', '#77dd77');
-         socket.emit('message', 'R' + '\n')
+		 let emitStr = 'R+' + analogButtonValue(gp.buttons[7]) + '\n';
+         socket.emit('message', emitStr);
       } else {
          $('#rightBottomShoulderButton').text('off');
          $('#rightBottomShoulderButton').css('background-color', '#fff');
