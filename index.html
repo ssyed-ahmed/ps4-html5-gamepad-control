@@ -207,6 +207,7 @@
     var b = 0;
     var ANALOG_BUTTON_THRESHOLD = .5;
     var STICK_OFFSET = 25;
+	var gp = null;
 
     var rAF = window.mozRequestAnimationFrame ||
       window.webkitRequestAnimationFrame ||
@@ -217,9 +218,9 @@
       window.cancelRequestAnimationFrame;
 
     window.addEventListener("gamepadconnected", function() {
-      var gp = navigator.getGamepads()[0];
+      gp = navigator.getGamepads()[0];
       gamepadInfo.innerHTML = "Gamepad connected at index " + gp.index + ": " + gp.id + ". It has " + gp.buttons.length + " buttons and " + gp.axes.length + " axes.";
-
+	  vibrateGamepad(1000);
       gameLoop();
     });
 
@@ -233,6 +234,18 @@
       // No gamepad events available, poll instead.
       var interval = setInterval(pollGamepads, 500);
     }
+	
+	function vibrateGamepad(durationInMillis) {
+		if (gp) {
+			if (gp.vibrationActuator) {
+				gp.vibrationActuator.playEffect("dual-rumble", {
+					duration: durationInMillis,
+					strongMagnitude: 1.0,
+					weakMagnitude: 1.0
+				});
+			}
+		}
+	}
 
     function pollGamepads() {
       var gamepads = navigator.getGamepads ? navigator.getGamepads() : (navigator.webkitGetGamepads ? navigator.webkitGetGamepads : []);
@@ -562,8 +575,8 @@
           $('#rightJoystickDown').text('on');
           $('#rightJoystickDown').css('background-color', '#77dd77');
           // socket.emit('message', 'X' + '\n')
-          let emitStr = 'X+' + axisData(gp.axes[3]) + '\n'
-          socket.emit('message', emitStr)
+          let emitStr = 'X+' + axisData(gp.axes[3]) + '\n';
+          socket.emit('message', emitStr);		  
       } else {
           $('#rightJoystickDown').text('off');
           $('#rightJoystickDown').css('background-color', '#fff');          
@@ -573,7 +586,8 @@
           $('#rightJoystickLeft').css('background-color', '#77dd77');
           // socket.emit('message', 'Y' + '\n')
           let emitStr = 'Y+' + axisData(gp.axes[2]) + '\n'
-          socket.emit('message', emitStr)
+          socket.emit('message', emitStr);
+		  vibrateGamepad(100);
       } else {
           $('#rightJoystickLeft').text('off');
           $('#rightJoystickLeft').css('background-color', '#fff');          
@@ -583,7 +597,8 @@
           $('#rightJoystickRight').css('background-color', '#77dd77');
           // socket.emit('message', 'Z' + '\n')
           let emitStr = 'Z+' + axisData(gp.axes[2]) + '\n'
-          socket.emit('message', emitStr)
+          socket.emit('message', emitStr);
+		  vibrateGamepad(100);
       } else {
           $('#rightJoystickRight').text('off');
           $('#rightJoystickRight').css('background-color', '#fff');          

@@ -34,12 +34,23 @@ void loop() {
   }
 }
 
+String parseInputString(String str) {
+  if (str.indexOf("+") == -1) {
+    return str;
+  }
+  int startIndex = str.indexOf("+") + 1;
+  int endIndex = str.length();
+  String s = str.substring(startIndex, endIndex);
+  return s;
+}
+
 void serialEvent() {
   while (Serial.available()) {
     char inChar = (char) Serial.read();
     inputString += inChar;
     // Check if the string is complete
     if (inChar == '\n') {
+      inputString = parseInputString(inputString);
       stringComplete = true;
     }
   }
