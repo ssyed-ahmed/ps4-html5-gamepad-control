@@ -44,8 +44,8 @@ String parseInputString(String str) {
   int endIndex = str.length();
   String s = str.substring(startIndex, endIndex);
   float value = s.toFloat();
-  long mapValue = mapf(value, -1.0, 1.0, 0, 255);
-  String retValue = ltoa(mapValue, buff, 10);
+  int mapValue = mapf(value, -1.0, 1.0, 0, 255);
+  String retValue = itoa(mapValue, buff, 10);
   return retValue;
 }
 
@@ -61,7 +61,34 @@ void serialEvent() {
   }
 }
 
-long mapf(float x, float in_min, float in_max, long out_min, long out_max) {
+int mapf(float x, float in_min, float in_max, int out_min, int out_max) {
   float val = (x - in_min) * (out_max - out_min)/(in_max - in_min) + out_min;
-  return (long) val;  
+  int mapValue =  (int) val;
+  if (mapValue < 0) {
+    mapValue = 0;
+  }
+  if (mapValue > 255) {
+    mapValue = 255;
+  }
+  return mapValue;
+}
+
+void resetData() {
+
+}
+
+void moveForward() {
+
+}
+
+void moveBack() {
+
+}
+
+void moveLeft() {
+
+}
+
+void moveRight() {
+
 }

@@ -4,12 +4,13 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 var serialPort = require('serialport');
 const Readline = require('@serialPort/parser-readline');
+const open = require('open');
 
 // Listen to web GET requests with the index.html file
 app.get('/', (request, response) => {
   response.sendFile(__dirname + '/index.html')
   console.log('success');
-})
+});
 
 // open the USB serial port
 var myPort = new serialPort("COM4", {
@@ -24,7 +25,8 @@ var myPort = new serialPort("COM4", {
 const parser = myPort.pipe(new Readline({delimiter: '\n'}));
 
 myPort.on('open', () => {
-  console.log('serial port opened')
+  console.log('serial port opened');
+  open('http://localhost:3000', {app: 'chrome'});
 })
 
 // Read data that is available but keep the stream from entering //"flowing mode"
