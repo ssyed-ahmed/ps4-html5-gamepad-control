@@ -29,7 +29,7 @@ myPort.on('open', () => {
 
 // Read data that is available but keep the stream from entering //"flowing mode"
 myPort.on('readable', function () {
-  console.log('Data:', myPort.read().toString());
+  myPort.read();
 });
 
 parser.on('data', (data) => {

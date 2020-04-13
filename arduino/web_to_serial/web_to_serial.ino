@@ -35,13 +35,18 @@ void loop() {
 }
 
 String parseInputString(String str) {
+  char buff[50];
   if (str.indexOf("+") == -1) {
     return str;
   }
+  char letter = str.charAt(0);
   int startIndex = str.indexOf("+") + 1;
   int endIndex = str.length();
   String s = str.substring(startIndex, endIndex);
-  return s;
+  float value = s.toFloat();
+  long mapValue = mapf(value, -1.0, 1.0, 0, 255);
+  String retValue = ltoa(mapValue, buff, 10);
+  return retValue;
 }
 
 void serialEvent() {
@@ -54,4 +59,9 @@ void serialEvent() {
       stringComplete = true;
     }
   }
+}
+
+long mapf(float x, float in_min, float in_max, long out_min, long out_max) {
+  float val = (x - in_min) * (out_max - out_min)/(in_max - in_min) + out_min;
+  return (long) val;  
 }
