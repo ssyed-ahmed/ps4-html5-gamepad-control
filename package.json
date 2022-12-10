@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/ssyed-ahmed/ps4-html5-gamepad-control#readme",
   "dependencies": {
-    "express": "^4.15.2",
+    "express": "^4.17.3",
     "open": "^7.0.3",
     "serialport": "^6.2.0",
     "socket.io": "^2.1.1"
